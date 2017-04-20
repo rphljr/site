@@ -1,0 +1,105 @@
+<!-- Shop Info Box -->
+<div class="shop-info-box section">
+  <!-- Map that appears on large -->
+  <div class="right responsive-img">
+    <%= link_to 'https://www.google.com/maps/place/Free+Gold+Watch/@37.7682011,-122.4549127,17z/data=!4m5!3m4!1s0x80858751638705a1:0xc5438abd8814e010!8m2!3d37.7682011!4d-122.452724' do %>
+      <%= image_tag('map', class: 'shop-map-up hide-on-med-and-down') %>
+    <% end %>
+  </div>
+  <div class="shop-info">
+    <!-- Address -->
+    <div class="">
+      <%= link_to 'https://www.google.com/maps/place/Free+Gold+Watch/@37.7682011,-122.4549127,17z/data=!4m5!3m4!1s0x80858751638705a1:0xc5438abd8814e010!8m2!3d37.7682011!4d-122.452724' do %>
+        <%= fa_icon "home 5x" %>
+        <%= image_tag('address', class: 'responsive-img info') %>
+      <% end %>
+    </div>
+    <!-- Phone -->
+    <div class="">
+      <%= fa_icon "phone 5x" %>
+      <%= image_tag('phone', class: 'responsive-img') %>
+    </div>
+    <!-- Email -->
+    <div class="">
+      <%= fa_icon "envelope 5x" %>
+      <%= image_tag('email', class: 'responsive-img') %>
+    </div>
+  </div>
+
+<!--  Map that appears on med & down -->
+  <div class="right responsive-img">
+    <%= link_to 'https://www.google.com/maps/place/Free+Gold+Watch/@37.7682011,-122.4549127,17z/data=!4m5!3m4!1s0x80858751638705a1:0xc5438abd8814e010!8m2!3d37.7682011!4d-122.452724' do %>
+      <%= image_tag('map', class: 'shop-map-down hide-on-large-only') %>
+    <% end %>
+  </div>
+</div> <!-- closes Shop Info Box -->
+
+<br>
+
+<!-- Pinball Box -->
+<div>
+  <%= image_tag('pin_title', class: "responsive-img") %> updated daily
+  <div class="pin-box section">
+    <ul class="pin-list">
+    <% @pins.each do |pin| %>
+      <li> <%= link_to pin['name'], pin['ipdb_link'] %> </li>
+    <% end %>
+    </ul>
+    <%= link_to "post high scores", "http://freegoldscores.bitballoon.com", class: "fgs-link right" %>
+  </div>
+</div> <!-- closes Pinball Box -->
+
+<br>
+
+<!-- Social Media Box -->
+<div class="social-box container">
+  <!-- SFPD Badge -->
+  <%= link_to 'http://sfpins.org' do %>
+    <%= image_tag('sfpd_b&w small', class: "responsive-img sfpd_logo") %>
+  <% end %>
+  <!-- Instagram Feed -->
+    <h4 class="center"> <%= fa_icon "camera-retro 3x" %> #freegoldwatch</h4>
+    <div class="insta-box row container">
+    <% @instagram.each do |instagram| %>
+      <%= link_to "#{instagram.images.standard_resolution.url}" do %>
+        <%= image_tag instagram.images.thumbnail.url, class: "hoverable" %>
+      <% end %>
+    <% end %>
+  </div>
+</div> <!-- closes Social Box -->
+
+
+
+<!-- Print Order Box -->
+<div class= "section">
+  <%= image_tag('print_title', class: "responsive-img") %>
+  <div class="print-box section">
+
+
+    <button class="btn btn-large new-print-btn">New Print Order</button>
+    <button class="btn btn-large back-btn hide">Back</button>
+
+    <div class="print-info">
+      <ul>
+        <div class="">
+          <%= fa_icon "check 5x" %>
+          <h5>Low minimums / fast turnaround!</h5>
+        </div>
+        <div class="">
+          <%= fa_icon "check 5x" %>
+          <h5>Spot color, 4 color process, waterbase inks!</h5>
+        </div>
+        <div class="">
+          <%= fa_icon "tags 5x" %>
+          <h5><%= link_to "Click here to see our available garmet catalog!", 'https://www.alphabroder.com/' %></h5>
+        </div>
+      </ul>
+    </div>
+    <div class="print-form hide">
+      <br/>
+      <%= render partial: 'home/new_print' %>
+    </div>
+  </div>
+</div>
+
+<br>
